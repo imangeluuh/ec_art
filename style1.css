@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, .header{
+    background-color: #F8F7F6;
+}
+
+.logo {
+    width: 100px;
+}
+
+.search-bar > input, .search-btn, .search-btn:hover{
+    background-color: #ECECEC;
+}
+
+.search-bar {
+    width: 20rem;
+}
+
+.search-btn:hover i {
+    color: rgba(0, 0, 0, 0.507);
+}
+
+.search-bar {
+    font-size: 14px;
+}
+
+.nav-link {
+    letter-spacing: 2px;
+    color: black;
+}
+
+.nav-link.active-link{
+    color: #986C4A; 
+}
+
+.nav-link:hover {
+    color: #986C4A; 
+} 
+
+.top {
+    margin-top: 8%;
+}
+
+.tagline {
+    width: 100%;
+}
+
+.login {
+    width: 70%;
+}
+
+.login .form-control {
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.login-btn, .buy-btn {
+    background-color: #986C4A;
+}
+
+.login-btn {
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #986c4ad5;
+    color: white;
+}
+
+.login-btn, .create-btn {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;   
+}
+
+.login-btn, .create-btn, .buy-btn {
+    border-radius: 20px;
+}
+
+
+.reset-password {
+    color: #78746F;
+    font-size: 12px;
+}
+
+hr {
+    border-top: 1px solid black;
+    width: 70%;
+    opacity: 100%;
+}
+
+.create-btn {
+    width: 50%;
+}
+
+.create-artist {
+    color: #807C78;
+}
+
+.products {
+    width: 70vw;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* might change later */
+    /*object-fit: contain; to prevent images to get squeezed */
+    object-fit: cover;
+}
+
+.card-img-top, .card {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: transparent;
+    border: 0;
+}
+
+.card-title {
+    color: #986C4A;
+    font-size: 14px;
+}
+
+.card-text {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    color: #787470;
+}
+
+.buy-btn {
+    color: #D9D9D9;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.buy-btn:hover {
+    background-color: #986C4A;
+    color: white;
+}
+
+.col-md-4 {
+    transition: transform .2s;
+}
+
+.col-md-4:hover {
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+
+.login input::-webkit-input-placeholder {
+    color: lightgrey;
+}
+.login input:-moz-placeholder { /* Upto Firefox 18, Deprecated in Firefox 19  */
+    color: lightgrey;  
+}
+.login input::-moz-placeholder {  /* Firefox 19+ */
+    color: lightgrey;  
+}
+.login input:-ms-input-placeholder {  
+    color: lightgrey;  
+}
