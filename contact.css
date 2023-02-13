@@ -1,0 +1,21 @@
+.contact {
+    font-family: 'Dancing Script', cursive;
+    font-size: 7vw;
+    transform: rotate(-2deg);
+    color: #986C4A; 
+}
+
+.contact-img {
+    width: 95%;
+    object-fit: cover;
+}
+
+.contact-detail2 {
+    text-align: right;
+}
+
+p {
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
