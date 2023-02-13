@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F9F8F7;
+}
+
+/* sidebar properties */
+
+.sidebar {
+    background-color: #423D37;
+}
+
+.logo {
+    width: 200px;
+}
+
+.sm-logo {
+    width: 50%;
+}
+
+.nav.nav-pills {
+    width: 70%;
+}
+
+.nav-link > a {
+    color: #F4F2F0;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.nav-link > a:hover {
+    color: #b99467;
+}
+
+.nav-item:focus {
+    background-color: #4B4640;
+}
+
+.search-bar > input{
+    border-radius: 20px;
+}
+
+.search-bar {
+    width: 50%;
+    height: 50px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.fa-magnifying-glass {
+    color: #986C4A;
+}
+
+.artist-name, .artist-role {
+    color: #423D37;
+}
+
+.artist-role {
+    font-size: 14px;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.fa-angle-down, .fa-envelope, .fa-bell {
+    font-size: 20px;
+    color: #906236;
+}
+
