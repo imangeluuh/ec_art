@@ -22,7 +22,7 @@
         
         <nav class="navbar fixed-top navbar-expand-lg header">
             <div class="container-fluid px-5 pt-3">
-                <a href="#" class="navbar-brand me-5"><img src="logo.png" alt="EC-Art" class="logo"></a>
+                <a href="ec_art.php" class="navbar-brand me-5"><img src="logo.png" alt="EC-Art" class="logo"></a>
                 <form action="" class="d-none d-sm-inline">
                     <div class="input-group search-bar">
                         <input type="search" class="form-control border-0" placeholder="Search" aria-label="Search">
@@ -40,13 +40,13 @@
                             <a class="nav-link active-link" aria-current="page" href="ec_art.php">HOME</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="#">ABOUT</a>
+                            <a class="nav-link" href="about.php">ABOUT</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="#">SERVICES</a>
+                            <a class="nav-link" href="services.php">SERVICES</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="#">CONTACT</a>
+                            <a class="nav-link" href="contact.php">CONTACT</a>
                         </li>
                     </ul>
                 </div>

@@ -1,0 +1,43 @@
+.header {
+    background-image: url("ec_art_about_background.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    align-items: flex-start;
+}
+  
+/* Pahelp na maresize yung logo ng hindi naaadjust yung navbar huhu, thank you! */
+.logo-about {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 9999;
+    max-height: 100px;
+}
+  
+
+.about-page {
+    margin-top: 35vh; 
+    padding: 40px;
+    font-family: 'Jost', sans-serif;
+    font-size: 21px;
+    text-align: left;
+    font-weight: bold;
+    padding: 2in;
+}
+  
+
+.nav-link-about {
+    letter-spacing: 3px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.nav-link-about.active-link{
+    color: #986C4A; 
+}
+
+.nav-link-contact {
+    margin-right: .18in;
+}
