@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
                         <li class="nav-item px-4">
-                            <a class="nav-link active-link" aria-current="page" href="ec_art.php">HOME</a>
+                            <a class="nav-link active-link" aria-current="page" href="index.php">HOME</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="about.php">ABOUT</a>
