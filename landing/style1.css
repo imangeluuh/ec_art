@@ -9,7 +9,7 @@ body, .header{
 }
 
 .logo {
-    width: 100px;
+    width: 150px;
 }
 
 .search-bar > input, .search-btn, .search-btn:hover{
@@ -42,7 +42,7 @@ body, .header{
 } 
 
 .top {
-    margin-top: 8%;
+    margin-top: 100px;
 }
 
 .tagline {

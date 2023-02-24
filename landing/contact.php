@@ -26,22 +26,14 @@
         
         <nav class="navbar fixed-top navbar-expand-lg header">
             <div class="container-fluid px-5 pt-3">
-                <a href="ec_art.php" class="navbar-brand me-5"><img src="./ec-logo.png" alt="EC-Art" class="logo"></a>
-                <form action="" class="d-none d-sm-inline">
-                    <div class="input-group search-bar">
-                        <input type="search" class="form-control border-0" placeholder="Search" aria-label="Search">
-                        <button class="btn search-btn border-0" type="submit">
-                        <i class="fas fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div> 
-                </form>
+                <a href="index.php" class="navbar-brand me-5"><img src="../logo/logo.png" alt="EC-Art" class="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
                         <li class="nav-item px-4">
-                            <a class="nav-link" aria-current="page" href="ec_art.php">HOME</a>
+                            <a class="nav-link" aria-current="page" href="index.php">HOME</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="about.php">ABOUT</a>
@@ -58,19 +50,19 @@
         </nav>
 
         <div class="container p-0 top">
-            <div class="row">
+            <div class="row mx-sm-2">
                 <div class="col-lg-12 p-0">
                     <div class="row mb-5">
                         <span class="contact d-flex justify-content-center align-items-center ">Contact Us</span>
                     </div>
                     <div class="row">
                         <div class="col-md-6 p-0">
-                            <div class="mb-4"><img src="./contact-img1.jpg" alt="" class="contact-img p-0"></div>
+                            <div class="mb-4"><img src="./img/contact-img1.jpg" alt="" class="contact-img p-0"></div>
                             <div class="row h-50 fw-semibold m-0">
                                 <div class="d-flex flex-column justify-content-center">
-                                <p class="d-flex justify-content-end fw-semibold m-0 me-3">(02-7995-8901)</p>
-                                <p class="d-flex justify-content-end fw-semibold m-0 me-3">+63 906 046 1436</p>
-                                <p class="d-flex justify-content-end fw-semibold m-0 me-3">Available daily from 9:00 AM - 8:00 PM (except on holidays.)</p>
+                                    <p class="d-flex justify-content-end fw-semibold m-0 me-3">(02-7995-8901)</p>
+                                    <p class="d-flex justify-content-end fw-semibold m-0 me-3">+63 906 046 1436</p>
+                                    <p class="d-flex justify-content-end fw-semibold m-0 me-3">Available daily from 9:00 AM - 8:00 PM (except on holidays.)</p>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +72,7 @@
                                 Get assistance from our Customer Care Specialists, who are available 24/7, or speak to our 24/7 virtual customer service representative (except on holidays.)
                                 </p>
                             </div>
-                            <div class="d-flex justify-content-end"><img src="./contact-img2.jpg" alt="" class="contact-img p-0"></div>
+                            <div class="d-flex justify-content-end"><img src="./img/contact-img2.jpg" alt="" class="contact-img p-0"></div>
                         </div>
                     </div>
                 </div>

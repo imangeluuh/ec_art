@@ -11,90 +11,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS link -->
     <link rel="stylesheet" href="style2.css">
+    <!-- Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid p-0">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar">
-                <div class="d-flex flex-column align-items-center align-items-sm-start min-vh-100">
-                    <a href="#"></a>
-                        <img src="logo-white.png" alt="logo" class="logo d-none d-sm-inline mt-5 mx-4">
-                        <img src="ec.png" alt="logo" class="sm-logo d-block d-sm-none p-0 pt-3">
-                    </a>
-                    <div class="container d-flex justify-content-center mt-5">
-                    <ul class="nav nav-pills flex-column mb-sm-auto m-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item fw-light py-2">
-                            <a href="#" class="nav-link align-middle px-0">
-                            <i class="fa-solid fa-user"></i> <span class="ms-1 d-none d-sm-inline">Profile</span>
-                            </a>
-                        </li>
-                        <li class="nav-item fw-light py-2">
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fa-solid fa-palette"></i> <span class="ms-1 d-none d-sm-inline">Art Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item fw-light py-2">
-                            <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fa-solid fa-brush"></i> <span class="ms-1 d-none d-sm-inline">Commissions</span></a>
-                        </li>
-                        <li class="nav-item fw-light py-2">
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fa-solid fa-house"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span></a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item fw-light py-2">
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fa-solid fa-gear"></i> <span class="ms-1 d-none d-sm-inline">Settings</span> </a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="col py-3 mt-3">
-                <?php 
-                    // when user searched something
-                    if(isset($_POST['search']))
-                        echo "hello";
-                ?>
-                <!-- header  -->
-                <nav class="navbar navbar-expand pb-5 header">
+        <div class="row">
+            <!-- header  -->
+            <div class="row d-flex justify-content-end">
+                <nav class="navbar navbar-expand header">
                     <div class="container-fluid d-flex justify-content-end px-3">
                         <div class="col">
-                        <form action="" method="post" class="d-none d-md-inline">
-                            <div class="input-group d-flex align-items-center search-bar">
-                                <i class="fas fa-solid fa-magnifying-glass ms-3"></i>
-                                <input type="search" name="search" class="form-control border-0" placeholder="Search" aria-label="Search">
-                            </div> 
-                        </form>
+                            <form action="" method="post" class="d-none d-lg-inline">
+                                <div class="input-group d-flex align-items-center search-bar">
+                                    <i class="fas fa-solid fa-magnifying-glass ms-3"></i>
+                                    <input type="search" name="search" class="form-control border-0" placeholder="Search" aria-label="Search">
+                                </div> 
+                            </form>
                         </div>
                         <div class="col d-flex align-items-center justify-content-end">
                             <div class="dropdown">
@@ -110,9 +48,7 @@
                                     <li><a class="dropdown-item" href="#">New project...</a></li>
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="#">Sign out</a></li>
                                 </ul>
                             </div>
@@ -121,62 +57,64 @@
                         </div>
                     </div>
                 </nav>
-
+            </div>
+            <!-- sidebar -->
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar">
+                <div class="d-flex flex-column align-items-center align-items-sm-start min-vh-100">
+                    <a href="artist.php"></a>
+                        <img src="../logo/logo-white.png" alt="logo" class="logo d-none d-md-inline mt-5 mx-4">
+                        <img src="ec.png" alt="logo" class="sm-logo d-block d-md-none p-0 pt-3">
+                    </a>
+                    <div class="container d-flex justify-content-center mt-5">
+                        <ul class="nav nav-pills flex-column mb-sm-auto m-0 align-items-center align-items-sm-start" id="menu">
+                            <li class="nav-item py-2">
+                                <a href="#" class="nav-link align-middle px-0">
+                                    <i class="fa-solid fa-user"></i> <span class="ms-1 d-none d-md-inline">Profile</span>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2">
+                                <a href="#" class="art nav-link align-middle px-0">
+                                    <i class="fa-solid fa-palette"></i> <span class="ms-1 d-none d-md-inline">Art Products</span>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2">
+                                <a href="artist.php?artist_comms" class="comms nav-link px-0 align-middle">
+                                    <i class="fa-solid fa-brush"></i> <span class=" ms-1 d-none d-md-inline">Commissions</span>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2">
+                                <a href="#" class="dashboard nav-link align-middle px-0">
+                                    <i class="fa-solid fa-house"></i> <span class="ms-1 d-none d-md-inline">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2">
+                                <a href="#" class="settings nav-link align-middle px-0">
+                                    <i class="fa-solid fa-gear"></i> <span class="ms-1 d-none d-md-inline">Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <!-- content -->
+            <div class="col p-0 m-3 me-5">
                 <!-- content -->
                 <div class="row">
-                    <div class="row mx-lg-5 mx-sm-2 mx-md-2">
-                        <div class="container">
-                            <span class="last-comms">Last opened commission in progress</span>
-                            <div class="card mb-3" style="max-width: 720px; height: 15rem">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="..." class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mx-lg-5 mx-sm-2 mx-md-2">
-                        <span class="my-comms">My Commissions</span>
-                        <div class="col-md-4 p-1">
-                            <div class="card" style="width: 25rem; height: 20rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 25rem; height: 20rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 25rem; height: 20rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    <?php 
+                        if(isset($_GET['artist_comms'])){
+                            include('artist_comms.php'); ?>
+                            <style type="text/css">
+                                .comms {
+                                    color: #b99467;
+                                }
+                                .art {
+                                    color: white;
+                                }
+                        </style>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>

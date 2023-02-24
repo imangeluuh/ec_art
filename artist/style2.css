@@ -12,6 +12,8 @@ body {
 
 .sidebar {
     background-color: #423D37;
+    box-shadow: 10px 0px 15px   rgba(0, 0, 0, 0.178);
+    margin-top: -66px;
 }
 
 .logo {
@@ -22,22 +24,19 @@ body {
     width: 50%;
 }
 
-.nav.nav-pills {
-    width: 70%;
-}
-
-.nav-link > a {
+.nav-link {
     color: #F4F2F0;
     letter-spacing: 1px;
     font-size: 16px;
 }
 
-.nav-link > a:hover {
+.nav-link:hover {
     color: #b99467;
 }
 
-.nav-item:focus {
-    background-color: #4B4640;
+/* navbar */
+.header {
+    width: 80%;
 }
 
 .search-bar > input{
@@ -46,13 +45,13 @@ body {
 
 .search-bar {
     width: 50%;
-    height: 50px;
+    height: 40px;
     border-radius: 20px;
     background-color: white;
 }
 
-.fa-magnifying-glass {
-    color: #986C4A;
+.fa-magnifying-glass, .fa-angle-down, .fa-envelope, .fa-bell {
+    color: #906236;
 }
 
 .artist-name, .artist-role {
@@ -69,6 +68,77 @@ body {
 
 .fa-angle-down, .fa-envelope, .fa-bell {
     font-size: 20px;
-    color: #906236;
+}
+
+
+/* comms content */
+.comms-label, .card-title, .card-text {
+    font-family: 'Raleway', sans-serif;
+}
+.comms-label, .card-title {
+    font-weight: bold;
+}
+
+.comms-label {
+    font-size: 18px;
+}
+
+.div-card {
+    border-radius: 30px;
+}
+
+.last-img {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* change the rounded corner in small screen */
+@media only screen and (max-width: 768px) {
+    .last-img {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 0;
+    }
+}
+
+.card-title {
+    font-size: 30px;
+}
+
+.card-text {
+    color: #423D37;
+}
+
+.continue, .status {
+    background-color: #986C4A;
+    border-radius: 50px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 5px 5px;
+}
+
+.continue {
+    width: 100px;
+}
+.status{
+    width: 30%;
+}
+
+.progress {
+    width: 95%;
+}
+
+.progress-bar {
+    background-color: #906236;
+}
+
+.card-img-top {
+    object-fit: cover;
 }
 

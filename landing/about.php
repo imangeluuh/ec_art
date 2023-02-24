@@ -24,14 +24,18 @@
     <div class="container-fluid p-0">
         <!-- first child -->
         
-        <nav class="navbar fixed-top navbar-expand-lg header">
+        <nav class="navbar navbar-light fixed-top navbar-expand-lg header">
             <div class="container-fluid px-5 pt-3">
-                <a href="ec_art.php" class="navbar-brand me-5"><img src="logo-white.png" alt="EC-Art" class="logo-about"></a>
-   
+                <a href="index.php" class="navbar-brand me-5"><img src="../logo/logo-white.png" alt="EC-Art" class="logo-about"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon ">
+                        <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+                    </span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
                         <li class="nav-item px-4">
-                            <a class="nav-link-about" aria-current="page" href="ec_art.php">HOME</a>
+                            <a class="nav-link-about" aria-current="page" href="index.php">HOME</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link-about active-link" href="about.php">ABOUT</a>
@@ -47,8 +51,11 @@
             </div>
         </nav>
     
-        <div class="about-page">
-            <div class="content-container">
+        <div class="container-fluid about-page p-0">
+            <div class="container-fluid p-0">
+                <img src="./img/ec_art_about_background.jpg" alt="" class="container-fluid p-0 bg-img">
+            </div>
+            <div class="container p-5">
                 <p class="justified-text"> E-C ART envisioned itself as a renowned creative enterprise that offers best quality of artwork that satisfy customers by preparing and serving affordable artwork that will be possible with proper practice of professionalism, honesty, integrity, and enthusiasm at all times.</p>
 
                 <p class="justified-text"> The business provide the clients with unparalleled options of tasteful artworks, and serve as your dynamic and personable guide for deciding which pieces fit your style and budget. E-C Art cater to seasoned art collectors and seasoned buyers  alike, so browse our collection and send any inquiries.</p>

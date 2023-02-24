@@ -23,22 +23,15 @@
     
         <nav class="navbar fixed-top navbar-expand-lg header">
             <div class="container-fluid px-5 pt-3">
-                <a href="ec_art.php" class="navbar-brand me-5"><img src="./ec-logo.png" alt="EC-Art" class="logo"></a>
-                <form action="" class="d-none d-sm-inline">
-                    <div class="input-group search-bar">
-                        <input type="search" class="form-control border-0" placeholder="Search" aria-label="Search">
-                        <button class="btn search-btn border-0" type="submit">
-                        <i class="fas fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </form>
+                <a href="index.php" class="navbar-brand me-5"><img src="../logo/logo.png" alt="EC-Art" class="logo"></a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
                         <li class="nav-item px-4">
-                            <a class="nav-link" aria-current="page" href="ec_art.php">HOME</a>
+                            <a class="nav-link" aria-current="page" href="index.php">HOME</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="about.php">ABOUT</a>
@@ -63,21 +56,21 @@
                     <div class="row">
                         <div class="col-md-4 mb-3 d-flex flex-column align-items-center">
                             <span class="service-title fw-bold mx-4 my-4">BUY</span>
-                            <img src="./buy-img.jpg" alt="" class="service-photo">
+                            <img src="./img/buy-img.jpg" alt="" class="service-photo">
                             <p class="service-desc fw-semibold mx-5 mt-4">
                             If you're an Art Collector, you may buy an art piece directly from an Artist. You may browse the artworks by Artists, categories, your desired art style, or price range for a piece you wish to add to your art collection.
                             </p>
                         </div>
                         <div class="col-md-4 mb-3 d-flex flex-column align-items-center">
                             <span class="service-title fw-bold mx-4 my-4">SELL</span>
-                            <img src="./sell-img.jpeg" alt="" class="service-photo">
+                            <img src="./img/sell-img.jpeg" alt="" class="service-photo">
                             <p class="service-desc fw-semibold mx-5 mt-4">
                             If you're a professional or an amateur Artist, you may sell your completed artworks and be discovered along with your masterpiece.
                             </p>
                         </div>
                         <div class="col-md-4 mb-3 d-flex flex-column align-items-center">
                             <span class="service-title fw-bold mx-4 my-4">COMMISSION</span>
-                            <img src="./comms-img.jpeg" alt="" class="service-photo">
+                            <img src="./img/comms-img.jpeg" alt="" class="service-photo">
                             <p class="service-desc fw-semibold mx-5 mt-4">
                             An Art Collector/Client and Artist may transact for a Commissioned Art. The Artist will create the commissioned artwork based on the client's request.
                             </p>
