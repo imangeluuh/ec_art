@@ -115,7 +115,7 @@
                     <div class='container p-0'>
                         <div class='d-flex justify-content-center user-login'>
                             <form action='index.php' method='post' class='login'>
-                                <input type='text' class='form-control my-2' name='email' id='email' placeholder='Email'>
+                                <input type='text' class='form-control my-2' name='username' id='username' placeholder='Username'>
                                 <input type='password' class='form-control my-2' name='password' id='password' placeholder='Password'>
                                 <input type='submit' name='login' value='LOG IN' class='btn fw-semibold mt-1 login-btn'>
                             </form>
@@ -127,7 +127,7 @@
                             <hr>
                         </div>
                         <div class='d-flex justify-content-center mb-2'>
-                            <a href='#' class='btn btn-dark fw-semibold create-btn'>CREATE NEW ACCOUNT</a>
+                            <a href='create.php' class='btn btn-dark fw-semibold create-btn'>CREATE NEW ACCOUNT</a>
                         </div>
                         <div class='d-flex justify-content-center my-2'>
                             <p class='create-artist'><a href='#' class='create-artist fw-bold'>Create New Account</a> for an Artist.</p>
