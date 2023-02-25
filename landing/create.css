@@ -1,0 +1,27 @@
+h1 {
+    font-family: 'Reem Kufi', sans-serif;
+    color: #986C4A;
+}
+
+.radio-div {
+    background-color: white;
+}
+
+.sign_up {
+    background-color: #986C4A;
+    font-family: 'Open Sans', sans-serif;
+    height: 40px;
+    font-size: 18-px;
+}
+
+.container-fluid.p-0 {
+    height: 100%;
+}
+
+.form-label, .ph {
+    font-size: 18px;
+}
+
+.login, .signup {
+    color: #986C4A;
+}
