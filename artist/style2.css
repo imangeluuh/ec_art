@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+body, .header {
     background-color: #F9F8F7;
 }
 
@@ -36,7 +36,7 @@ body {
 
 /* navbar */
 .header {
-    width: 80%;
+    width: 84%;
 }
 
 .search-bar > input{
@@ -54,7 +54,7 @@ body {
     color: #906236;
 }
 
-.artist-name, .artist-role {
+.artist-name, .artist-role, .heading {
     color: #423D37;
 }
 
@@ -66,13 +66,13 @@ body {
     display: none !important;
 }
 
-.fa-angle-down, .fa-envelope, .fa-bell {
+.fa-angle-down, .fa-bell {
     font-size: 20px;
 }
 
 
 /* comms content */
-.comms-label, .card-title, .card-text {
+.comms-label, .card-title, .card-text, .completed-art {
     font-family: 'Raleway', sans-serif;
 }
 .comms-label, .card-title {
@@ -108,7 +108,7 @@ body {
     font-size: 30px;
 }
 
-.card-text {
+.card-text, .completed-art {
     color: #423D37;
 }
 
@@ -138,7 +138,46 @@ body {
     background-color: #906236;
 }
 
-.card-img-top {
+.card-img-top, .profile-pic {
     object-fit: cover;
 }
 
+.content {
+    width: 84%;
+    margin-left: 17%;
+    margin-top: 5%;
+}
+
+.profile-div {
+    box-shadow: 0px 10px 30px   rgba(0, 0, 0, 0.178);
+}
+
+.completed-art {
+    font-size: 24px;
+}
+
+/* dashboard */
+.total {
+    background-color: #D9D9D9;
+    height: 130px;
+    font-size: 90px;
+}
+
+.label {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.label, .total {
+    font-family: 'Bebas Neue', cursive;
+    width: 130px;
+}
+
+.cancel-btn {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.heading {
+    font-size: 18px;
+}
