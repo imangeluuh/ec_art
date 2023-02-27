@@ -65,7 +65,7 @@
         $row_count = sqlsrv_num_rows($stmt);
         // if number of rows is greater than 0, the username is already existing
         if(!$row_count) {
-            echo "<script>alert('Username not found. Pleas create an account first.')</script>";
+            echo "<script>alert('Username not found. Please create an account first.')</script>";
         } else {
             $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
 

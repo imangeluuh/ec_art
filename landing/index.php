@@ -29,6 +29,14 @@
 
         // Include database configuration file 
         require_once '../database/dbConfig.php'; 
+
+        
+        if(isset($_POST['login'])){
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            userLogin($username, $password);
+        } 
     ?>
 
     <div class="container-fluid p-0">
@@ -60,11 +68,7 @@
         </nav>
         <!-- second child -->
 
-        <?php
-
-        // if session is empty, prompt login 
-        if(empty($userData)) // baka tanggalin
-        echo"<div class='container p-0 login-container'>
+        <div class='container p-0 login-container'>
             <div class='row px-4 top'>
                 <div class='col-md-6 d-flex justify-content-center p-0'>
                     <img src='./img/logo-tagline.png' alt='ec-art' class='tagline'>
@@ -90,10 +94,7 @@
                     </div>
                 </div>
             </div>
-        </div>"
-
-        ?>
-
+        </div>
         <div class="container d-flex justify-content-center">
         <div class="row top products">
             <div class="col-lg-12 p-0">
@@ -114,12 +115,3 @@
     
 </body>
 </html>
-
-<?php 
-    if(isset($_POST['login'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        userLogin($username, $password);
-    } 
-?>
