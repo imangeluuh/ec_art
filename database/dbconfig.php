@@ -1,6 +1,6 @@
 <?php  
     $serverName = "localhost\SQLEXPRESS"; 
-    $databaseName = "ECArt"; 
+    $databaseName = "EC_Art"; 
 
     $connectionInfo = array("Database"=>$databaseName); 
 

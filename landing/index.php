@@ -1,3 +1,7 @@
+<?php
+    include('../functions/functions.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,48 +25,10 @@
 
 
         // Retrieve session data 
-        $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:''; 
-        
-        // Get status message from session 
-        if(!empty($sessData['status']['msg'])){ 
-            $statusMsg = $sessData['status']['msg']; 
-            $statusMsgType = $sessData['status']['type']; 
-            unset($_SESSION['sessData']['status']); 
-        } 
-
+        $userData = !empty($_SESSION['userData'])?$_SESSION['userData']:''; 
 
         // Include database configuration file 
         require_once '../database/dbConfig.php'; 
-
-        // include login file
-        //require 'login.php';
-        if(isset($_POST['login'])){
-            header("Location: ../artist/artist.php");
-            $username = $_POST['email'];
-            $password = $_POST['password'];
-
-            $tsql = "SP_FIND_USERNAME ?";
-            
-            // Assign value to param
-            $param = array($username); 
-
-            // execute query
-            $stmt = sqlsrv_query($conn, $tsql, $param);
-            echo sqlsrv_num_rows($stmt);
-            
-            if(sqlsrv_num_rows($stmt) == 0){
-                echo"alert('User Not Found. Pleas create an account first.')";
-            } else {
-                $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
-
-                if($row['Password'] == $password){
-                    if($row['RoleID'] == 2) {
-                        header("Location: ../artist/artist.php");
-                        exit;
-                    }
-                }
-            }
-        }
     ?>
 
     <div class="container-fluid p-0">
@@ -71,14 +37,6 @@
         <nav class="navbar fixed-top navbar-expand-lg header">
             <div class="container-fluid px-5 pt-3">
                 <a href="#" class="navbar-brand me-5"><img src="../logo/logo.png" alt="EC-Art" class="logo"></a>
-                <form action="" class="d-none d-sm-inline">
-                    <div class="input-group search-bar">
-                        <input type="search" class="form-control border-0" placeholder="Search" aria-label="Search">
-                        <button class="btn search-btn border-0" type="submit">
-                        <i class="fas fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div> 
-                </form>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -105,7 +63,7 @@
         <?php
 
         // if session is empty, prompt login 
-        if(empty($sessData))
+        if(empty($userData)) // baka tanggalin
         echo"<div class='container p-0 login-container'>
             <div class='row px-4 top'>
                 <div class='col-md-6 d-flex justify-content-center p-0'>
@@ -114,9 +72,9 @@
                 <div class='col-md-6 d-flex align-items-center p-0'>
                     <div class='container p-0'>
                         <div class='d-flex justify-content-center user-login'>
-                            <form action='index.php' method='post' class='login'>
-                                <input type='text' class='form-control my-2' name='username' id='username' placeholder='Username'>
-                                <input type='password' class='form-control my-2' name='password' id='password' placeholder='Password'>
+                            <form action='' method='post' class='login'>
+                                <input type='text' class='form-control my-2' name='username' id='username' placeholder='Username' required='required' autocomplete='off'>
+                                <input type='password' class='form-control my-2' name='password' id='password' placeholder='Password' required='required' autocomplete='off'>
                                 <input type='submit' name='login' value='LOG IN' class='btn fw-semibold mt-1 login-btn'>
                             </form>
                         </div>
@@ -128,9 +86,6 @@
                         </div>
                         <div class='d-flex justify-content-center mb-2'>
                             <a href='create.php' class='btn btn-dark fw-semibold create-btn'>CREATE NEW ACCOUNT</a>
-                        </div>
-                        <div class='d-flex justify-content-center my-2'>
-                            <p class='create-artist'><a href='#' class='create-artist fw-bold'>Create New Account</a> for an Artist.</p>
                         </div>
                     </div>
                 </div>
@@ -144,40 +99,8 @@
             <div class="col-lg-12 p-0">
                 <div class="row mx-lg-5">
                     <?php 
-                        // Fetch the data from SQL server
-
-                        $tsql = "SP_LIST_ARTWORKS";  
-
-                        /* Execute the query. */  
-                        $stmt = sqlsrv_query($conn, $tsql);  
-                        if ( $stmt )  
-                        {  
-                            while($row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC)) {
-                                $artwork_name = $row['ArtworkName'];
-                                $image = base64_encode($row['Image']);
-                                $price = $row['Price'];
-                                $artist_name = $row['ArtistFirstName'] . " " . $row['ArtistLastName'];
-                                
-                                echo "<div class='product-card col-md-4 mb-3'>
-                                        <div class='card'>
-                                            <img src='data:image.jpeg;base64,$image' class='card-img-top' alt='...'>
-                                            <div class='card-body p-0 pt-2'>
-                                                <h5 class='card-title text-uppercase fw-bold m-0'>$artwork_name</h5>
-                                                <p class='card-text mb-2'>By $artist_name</p>
-                                                <div class='d-flex justify-content-center'>
-                                                    <a href='#' class='btn buy-btn fw-bold'>BUY NOW</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>"; 
-                            }
-                        }   
-                        else   
-                        {  
-                            echo "Error in statement execution.\n";  
-                            die( print_r( sqlsrv_errors(), true));  
-                        }  
-                        
+                        // call function to display products
+                        getLandingArtwork();
                     ?>
                 </div>
             </div>
@@ -191,3 +114,12 @@
     
 </body>
 </html>
+
+<?php 
+    if(isset($_POST['login'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        userLogin($username, $password);
+    } 
+?>

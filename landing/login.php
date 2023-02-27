@@ -26,6 +26,7 @@
     //         }
     //     }
     // }
+    include('../functions/functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +56,7 @@
         <!-- first child -->
         <nav class="navbar fixed-top navbar-expand-lg header">
             <div class="container-fluid px-5 pt-3">
-                <a href="#" class="navbar-brand me-5"><img src="../logo/logo.png" alt="EC-Art" class="logo"></a>
+                <a href="index.php" class="navbar-brand me-5"><img src="../logo/logo.png" alt="EC-Art" class="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -78,13 +79,53 @@
             </div>
         </nav>
 
+        
+		<?php 
+        // Start session 
+        if(!session_id()){ 
+            session_start(); 
+        } 
+
+
+        // Retrieve session data 
+        $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:''; 
+        
+        // Get status message from session 
+        if(!empty($sessData['status']['msg'])){ 
+            $statusMsg = $sessData['status']['msg']; 
+            $statusMsgType = $sessData['status']['type']; 
+            unset($_SESSION['sessData']['status']); 
+        } 
+
+        /* Display status message */
+        if(!empty($statusMsg) && ($statusMsgType == 'success')){ ?>
+            <div class="col-xs-12">
+                <div class="alert alert-success"><?php echo $statusMsg; ?></div>
+            </div>
+        <?php }elseif(!empty($statusMsg) && ($statusMsgType == 'error')){ ?>
+            <div class="col-xs-12">
+                <div class="alert alert-danger"><?php echo $statusMsg; ?></div>
+            </div>
+		<?php } 
+
+            // Include database configuration file 
+            require_once '../database/dbConfig.php'; 
+
+            if(isset($_POST['login'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+        
+                userLogin($username, $password);
+            }
+        ?>
+
         <div class="container">
             <div class="row top d-flex justify-content-center">
                 <h1 class="text-center mb-3">Login</h1>
                 <hr>
                 <div class="row d-flex justify-content-center align-items-center mt-3">
                     <div class="col-lg-12 col-xl-6 p-0">
-                        <form action="" method="post" enctype="multipart/form-data" >
+                        <form action="" method="post">
                             <!-- Username field -->
                             <div class="form-outline row mb-3">
                                 <input type="text" name="username" id="username" class="form-control-lg" placeholder="Username" autocomplete="off" required="required">
@@ -105,9 +146,6 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 
 

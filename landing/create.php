@@ -25,7 +25,7 @@
         <!-- first child -->
         <nav class="navbar fixed-top navbar-expand-lg header">
             <div class="container-fluid px-5 pt-3">
-                <a href="#" class="navbar-brand me-5"><img src="../logo/logo.png" alt="EC-Art" class="logo"></a>
+                <a href="index.php" class="navbar-brand me-5"><img src="../logo/logo.png" alt="EC-Art" class="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -54,7 +54,7 @@
                 <hr>
                 <div class="row d-flex justify-content-center align-items-center mt-3">
                     <div class="col-lg-12 col-xl-6 p-0">
-                        <form action="" method="post" enctype="multipart/form-data" >
+                        <form method="post" action="user_action.php" enctype="multipart/form-data">
                             <!-- Name field -->
                             <div class="form-outline row mb-3">
                                 <div class="col-6 p-0">
@@ -88,52 +88,23 @@
                                     <div class="radio-div col-5 d-flex justify-content-between align-items-center border border-2 border-dark rounded-3 p-2 px-3 me-5">
                                         <label for="artist"><span class="ph">Artist</span></label>
                                         <div class="form-check">
-                                            <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+                                            <input class="form-check-input position-static" type="radio" name="account" value="1" aria-label="...">
                                         </div>
                                     </div>
                                     <div class="radio-div col-6 d-flex justify-content-between align-items-center border border-2 border-dark rounded-3 p-2 px-3 ms-2">
                                         <label for="client"><span class="ph">Client/Buyer</span></label>
                                         <div class="form-check">
-                                            <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+                                            <input class="form-check-input position-static" type="radio" name="account" value="2" aria-label="...">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Birthday field -->
-                            <div class="form-outline mb-3">
-                                <label for="birthdate" class="form-label mb-2">Birthday</label>
-                                <i class="fa-solid fa-circle-question"></i>
-                                <div class="row">
-                                    <div class="col-4 p-0 pe-2">
-                                        <select class="form-select border border-2 border-dark d-flex align-items-center p-2">
-                                            <option selected disabled>Month</option>
-                                            <?php
-                                                for($i = 1; $i <= 12; $i++) {
-                                                    echo "<option value='$i'>$i</option>";
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 p-0 pe-1">
-                                        <select class="form-select border border-2 border-dark d-flex align-items-center p-2">
-                                            <option selected disabled>Day</option>
-                                            <?php
-                                                for($i = 1; $i <= 31; $i++) {
-                                                    echo "<option value='$i'>$i</option>";
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 p-0 ps-1">
-                                        <select class="form-select border border-2 border-dark d-flex align-items-center p-2">
-                                            <option selected disabled>Year</option>
-                                            <?php
-                                                for($i = 2005; $i >= 1933; $i--) {
-                                                    echo "<option value='$i'>$i</option>";
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
+                            <div class="row">
+                                <div class="mb-3 p-0">
+                                    <label class="form-label mb-2">Birthdate</label>
+                                    <i class="fa-solid fa-circle-question"></i>
+                                    <input class="form-control border border-2 border-dark" type="date" id="birthdate" name="birthdate">
                                 </div>
                             </div>
                             <!-- Phone field -->
@@ -148,7 +119,7 @@
                                 <div class="mb-3 p-0">
                                     <label for="formFile" class="form-label mb-2">Display Photo</label>
                                     <i class="fa-solid fa-circle-question"></i>
-                                    <input class="form-control border border-2 border-dark" type="file" id="formFile">
+                                    <input class="form-control border border-2 border-dark" type="file" class="form-control" name="displayphoto">
                                 </div>
                             </div>
                             <!-- Submit Button -->
