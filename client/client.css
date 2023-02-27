@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, .header {
+    background-color: #F9F8F7;
+}
+
+.content {
+    width: 84%;
+    margin-left: 17%;
+    margin-top: 5%;
+}
+
+/* sidebar properties */
+
+.sidebar {
+    background-color: #423D37;
+    box-shadow: 10px 0px 15px   rgba(0, 0, 0, 0.39);
+    /* margin-top: -66px; */
+}
+
+.logo {
+    width: 200px;
+}
+
+.sm-logo {
+    width: 50%;
+}
+
+.nav-link {
+    color: #F4F2F0;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #b99467;
+}
+
+/* navbar */
+.header {
+    width: 84%;
+}
+
+.search-bar > input{
+    border-radius: 20px;
+}
+
+.search-bar {
+    width: 50%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.fa-magnifying-glass, .fa-angle-down, .fa-envelope, .fa-bell, .fa-cart-shopping {
+    color: #906236;
+}
+
+.artist-name, .artist-role, .artist-link {
+    color: #423D37;
+}
+
+.artist-role {
+    font-size: 14px;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.fa-angle-down, .fa-envelope, .fa-bell {
+    font-size: 20px;
+}
+
+.comms-label, .card-title, .card-text {
+    font-family: 'Raleway', sans-serif;
+}
+.comms-label, .card-title {
+    font-weight: bold;
+}
+
+.comms-label {
+    font-size: 18px;
+}
+
+.div-card {
+    border-radius: 30px;
+}
+
+.card-title {
+    font-size: 24px;
+}
+
+.card-text {
+    color: #423D37;
+}
+
+.status, .price, .continue, .line, .total-label, .total-price, .mop-label {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.continue, .status {
+    background-color: #986C4A;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 5px 5px;
+}
+
+.continue {
+    width: 150px;
+}
+
+.status{
+    width: 30%;
+}
+
+.price, .heading, .total-price {
+    color: #423D37;
+}
+
+.last-img {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* change the rounded corner in small screen */
+@media only screen and (max-width: 768px) {
+    .last-img {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 0;
+    }
+}
+
+.progress {
+    width: 95%;
+}
+
+.progress-bar {
+    background-color: #906236;
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+/* Home */
+
+.tagline {
+    font-family: 'Passion One', cursive;
+    font-size: 5vw;
+}
+
+.home-product1, .home-product {
+    object-fit: cover;
+}
+
+.home-product1 {
+    width: 36.1vw;
+    min-width: 420px;
+}
+
+.home-product {
+    width: 12vw;
+    min-width: 140px
+} 
+
+.line {
+    font-size: 1.5rem;
+}
+
+.cart {
+    color: white;
+}
+
+/* Dashboard */
+
+.total {
+    background-color: #D9D9D9;
+    height: 130px;
+    font-size: 90px;
+}
+
+.label {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.label, .total {
+    font-family: 'Bebas Neue', cursive;
+    width: 130px;
+}
+
+.cancel-btn {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.heading {
+    font-size: 18px;
+}
+
+/* checkout */
+
+h1 {
+    font-family: 'Reem Kufi', sans-serif;
+    color: #986C4A;
+}
+
+.checkout-card {
+    background-color: transparent;
+    border: none;
+}
+
+.radio-div {
+    background-color: white;
+    width: 180px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.total-label {
+    font-size: 20px;
+}
+
+.mop-label {
+    color: #717273;
+}
+
+.next {
+    background-color: #986C4A;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;   
+    width: 500px;
+}
+
+.next:hover {
+    background-color: #986c4ad5;
+    color: white;
+}
+
+/* artist */
+.comms-form {
+    letter-spacing: 1px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* might change later */
+    /*object-fit: contain; to prevent images to get squeezed */
+    object-fit: cover;
+}
