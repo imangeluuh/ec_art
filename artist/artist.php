@@ -1,3 +1,7 @@
+<?php
+    include('../functions/functions.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +27,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php
+        // Start session 
+		if(!session_id()){ 
+            session_start(); 
+		} 
+ 
+
+		// Retrieve session data 
+		$userData = !empty($_SESSION['userData'])?$_SESSION['userData']:''; 
+
+		// Include database configuration file 
+		require_once '../database/dbConfig.php'; 
+
+        $tsql = "SP_GET_ARTIST ?";
+        $params = array($_SESSION['userData']['username']);
+        $stmt = sqlsrv_query($conn, $tsql, $params);
+        if ( $stmt )  
+        {  
+            $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
+            $artist_username = $row['Username'];
+            $artist_id = $row['ArtistID'];
+            $artist_name = $row['ArtistFirstName'] . " " . $row['ArtistLastName'];
+            $artist_photo = $row['ArtistPhoto'];
+            
+        }   
+        else   
+        {  
+            echo "Error in statement execution.\n";  
+            die( print_r( sqlsrv_errors(), true));  
+        }  ?>
+        
     <div class="container-fluid p-0">
         <div class="row">
             <!-- header  -->
@@ -40,9 +75,9 @@
                         <div class="col d-flex align-items-center justify-content-end">
                             <div class="dropdown">
                                 <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="./leonardo.jpg" alt="" width="50" height="50" class="rounded-circle">
+                                    <img src="../img/user-img/<?php echo $artist_photo; ?>" alt="" width="50" height="50" class="rounded-circle">
                                     <span class="d-none d-md-inline mx-2">
-                                        <p class="d-flex justify-content-end fw-bold m-0 artist-name">Leonardo Da Vinci</p>
+                                        <p class="d-flex justify-content-end fw-bold m-0 artist-name"><?php echo $artist_name; ?></p>
                                         <p class="d-flex justify-content-end fw-semibold m-0 artist-role">Artist</p>  
                                     </span>
                                     <i class="fa-solid fa-angle-down mx-2"></i>
@@ -52,7 +87,7 @@
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="../landing/logout.php">Sign out</a></li>
                                 </ul>
                             </div><button type="button" class="btn"><i class="fa-regular fa-bell fw-light mx-1"></i></button>
                         </div>
@@ -97,7 +132,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <hr>
                     </div>
                 </div>
                 <!-- content side -->
@@ -105,60 +139,59 @@
                     <!-- content -->
                     <div class="container-fluid">
                         <div class="row">
-                            <?php 
-                                if(isset($_GET['artist_comms'])){
-                                    include('artist_comms.php'); ?>
-                                    <style type="text/css">
-                                        .art, .profile, .dashboard, .settings{
-                                            color: white;
-                                        }
-                                        .comms {
-                                            color: #b99467;
-                                        }
-                                    </style>
-                                <?php
-                                } elseif(isset($_GET['artist_art'])){
-                                    include('artist_art.php'); ?>
-                                    <style type="text/css">
-                                        .profile, .dashboard, .settings, .comms {
-                                            color: white;
-                                        }
-                                        .art {
-                                            color: #b99467;
-                                        }
-                                    </style>
-                                <?php
-                                } elseif(isset($_GET['artist_dashboard'])){
-                                    include('artist_dashboard.php'); ?>
-                                    <style type="text/css">
-                                        .profile, .art, .settings, .comms {
-                                            color: white;
-                                        }
-                                        .dashboard {
-                                            color: #b99467;
-                                        }
-                                    </style>
-                                <?php
-                                } else { ?>  
-                                    <style type="text/css">
-                                        .art, .dashboard, .settings, .comms {
-                                            color: white;
-                                        }
-                                        .profile {
-                                            color: #b99467;
-                                        }
-                                    </style>
-                                    <?php
-                                    echo '<div class="container-fluid">
+                        <?php 
+                            if(isset($_GET['artist_comms'])){
+                                include('artist_comms.php'); ?>
+                                <style type="text/css">
+                                    .art, .profile, .dashboard, .settings{
+                                        color: white;
+                                    }
+                                    .comms {
+                                        color: #b99467;
+                                    }
+                                </style>
+                            <?php
+                            } elseif(isset($_GET['artist_art'])){
+                                include('artist_art.php'); ?>
+                                <style type="text/css">
+                                    .profile, .dashboard, .settings, .comms {
+                                        color: white;
+                                    }
+                                    .art {
+                                        color: #b99467;
+                                    }
+                                </style>
+                            <?php
+                            } elseif(isset($_GET['artist_dashboard'])){
+                                include('artist_dashboard.php'); ?>
+                                <style type="text/css">
+                                    .profile, .art, .settings, .comms {
+                                        color: white;
+                                    }
+                                    .dashboard {
+                                        color: #b99467;
+                                    }
+                                </style>
+                            <?php
+                            } else { ?>  
+                                <style type="text/css">
+                                    .art, .dashboard, .settings, .comms {
+                                        color: white;
+                                    }
+                                    .profile {
+                                        color: #b99467;
+                                    }
+                                </style>
+                                    <div class="container-fluid">
                                     <div class="container row ms-4 p-0">
                                         <div class="card div-card profile-div mb-3" style="max-width: 1000px;">
                                             <div class="row g-0 p-4">
                                                 <div class="col-md-3 d-flex justify-content-center align-items-center">
-                                                    <img src="../landing/img/contact-img2.jpg" width="150" height="150" class="rounded-circle profile-pic">
+                                                    <img src="../img/user-img/<?php echo $artist_photo;?>" width="150" height="150" class="rounded-circle profile-pic">
                                                 </div>
                                                 <div class="col-md-5 d-flex align-items-center">
                                                     <div class="card-body">
-                                                        <h5 class="card-title">Card title</h5>
+                                                        <h5 class="card-title"><?php echo $artist_name; ?></h5>
                                                         <p class="card-text fs-5">Artist</p>
                                                     </div>
                                                 </div>
@@ -179,75 +212,35 @@
                                     </div>
                                     <div class="container row ms-4 mt-5 p-0">
                                         <span class="completed-art fw-semibold">Completed Art</span>
+                                        <?php
+                                            $tsql = "SP_LIST_ARTIST_ARTWORK ?";  
+                                            $param = array($artist_id);
+                                            /* Execute the query. */  
+                                            $stmt = sqlsrv_query($conn, $tsql, $param);  
+                                            if ( $stmt )  
+                                            {  
+                                                // Display products
+                                                while($row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC)) {
+                                                    $artwork_name = $row['ArtworkName'];
+                                                    $image = $row['Image'];
+                                                    $price = $row['Price'];
+                                                    $artist_name = $row['ArtistFirstName'] . " " . $row['ArtistLastName']; ?>
+                                                    
                                         <div class="card div-card mx-lg-2 my-3 p-0" style="max-width: 23rem;">
-                                            <img src="../buy-img.jpg" class="card-img-top" alt="...">
+                                            <img src="../img/art-img/<?php echo $image; ?>" class="card-img-top rounded-top-5" alt="$artwork_name">
                                             <div class="card-body">
-                                                <h5 class="card-title">City Buildings Digital Art Taipei</h5>
-                                                <p class="d-flex justify-content-end price">₱3,450</p>
-                                                <div class="card-text d-flex justify-content-between">
-                                                    <span>For Chiaki Sato</span>
-                                                    <p class="status d-flex justify-content-center ">CONTINUE</p>
+                                                <h5 class="card-title"><?php echo $artwork_name; ?></h5>
+                                                <div class="card-text d-flex justify-content-between mt-5">
+                                                    <span class="fw-semibold">₱<?php echo $price; ?></span>
+                                                    <p class="status d-flex justify-content-center ">EDIT</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card div-card mx-lg-2 my-3 p-0" style="max-width: 23rem;">
-                                            <img src="../buy-img.jpg" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Untitled Commission</h5>
-                                                <p class="d-flex justify-content-end price">₱3,450</p>
-                                                <div class="card-text d-flex justify-content-between">
-                                                    <span>For Chiaki Sato</span>
-                                                    <p class="status d-flex justify-content-center ">CONTINUE</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card div-card mx-lg-2 my-3 p-0" style="max-width: 23rem;">
-                                            <img src="../buy-img.jpg" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Beach and Skies in Pastel</h5>
-                                                <p class="d-flex justify-content-end price">₱3,450</p>
-                                                <div class="card-text d-flex justify-content-between">
-                                                    <span>For Chiaki Sato</span>
-                                                    <p class="status d-flex justify-content-center ">CONTINUE</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card div-card mx-lg-2 my-3 p-0" style="max-width: 23rem;">
-                                            <img src="../buy-img.jpg" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">City Buildings Digital Art Taipei</h5>
-                                                <p class="d-flex justify-content-end price">₱3,450</p>
-                                                <div class="card-text d-flex justify-content-between">
-                                                    <span>For Chiaki Sato</span>
-                                                    <p class="status d-flex justify-content-center ">CONTINUE</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card div-card mx-lg-2 my-3 p-0" style="max-width: 23rem;">
-                                            <img src="../buy-img.jpg" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Untitled Commission</h5>
-                                                <p class="d-flex justify-content-end price">₱3,450</p>
-                                                <div class="card-text d-flex justify-content-between">
-                                                    <span>For Chiaki Sato</span>
-                                                    <p class="status d-flex justify-content-center ">CONTINUE</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card div-card mx-lg-2 my-3 p-0" style="max-width: 23rem;">
-                                            <img src="../buy-img.jpg" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Beach and Skies in Pastel</h5>
-                                                <p class="d-flex justify-content-end price">₱3,450</p>
-                                                <div class="card-text d-flex justify-content-between">
-                                                    <span>For Chiaki Sato</span>
-                                                    <p class="status d-flex justify-content-center ">CONTINUE</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php }
+                                        } ?>
                                     </div>
-                                </div>';
-                                } ?>
+                                </div>
+                               <?php } ?> 
                         </div>
                     </div>
                 </div>
