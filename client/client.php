@@ -131,16 +131,6 @@
                                         <i class="fa-solid fa-brush"></i> <span class="ms-1 d-none d-md-inline">Commissions</span>
                                     </a>
                                 </li>
-                                <li class="nav-item py-2">
-                                    <a href="client.php?client_dashboard" class="nav-link align-middle px-0">
-                                        <i class="fa-solid fa-house"></i> <span class="ms-1 d-none d-md-inline">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item py-2">
-                                    <a href="#" class="nav-link align-middle px-0">
-                                        <i class="fa-solid fa-gear"></i> <span class="ms-1 d-none d-md-inline">Settings</span>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                         <hr>

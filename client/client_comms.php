@@ -30,32 +30,32 @@
 <div class="row mx-2">
     <span class="comms-label">Commissions</span>
     <div class="card div-card mx-lg-3 my-3 p-0" style="max-width: 23rem;">
-        <img src="buy-img.jpg" class="card-img-top" alt="...">
+        <img src="../img/art-img/seashore.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">City Buildings Digital Art Taipei</h5>
+            <h5 class="card-title">Seashore</h5>
             <div class="card-text d-flex justify-content-between">
-                <span>For Chiaki Sato</span>
-                <p class="status d-flex justify-content-center ">CONTINUE</p>
+                <span>By Ysamael Agosto</span>
+                <p class="status d-flex justify-content-center ">DOWNLOAD</p>
             </div>
         </div>
     </div>
     <div class="card div-card mx-lg-3 my-3 p-0" style="max-width: 23rem;">
-        <img src="buy-img.jpg" class="card-img-top" alt="...">
+        <img src="../img/art-img/jeep.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Untitled Commission</h5>
+            <h5 class="card-title">Jeepney Escapade</h5>
             <div class="card-text d-flex justify-content-between">
-                <span>For Chiaki Sato</span>
-                <p class="status d-flex justify-content-center ">CONTINUE</p>
+                <span>By Vito Sartori</span>
+                <p class="status d-flex justify-content-center ">DOWNLOAD</p>
             </div>
         </div>
     </div>
     <div class="card div-card mx-lg-3 my-3 p-0" style="max-width: 23rem;">
-        <img src="buy-img.jpg" class="card-img-top" alt="...">
+        <img src="../img/art-img/home.png" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Beach and Skies in Pastel</h5>
+            <h5 class="card-title">Whale At Home</h5>
             <div class="card-text d-flex justify-content-between">
-                <span>For Chiaki Sato</span>
-                <p class="status d-flex justify-content-center ">CONTINUE</p>
+                <span>By Maven De Marco</span>
+                <p class="status d-flex justify-content-center ">DOWNLOAD</p>
             </div>
         </div>
     </div>

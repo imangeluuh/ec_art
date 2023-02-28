@@ -50,14 +50,14 @@
 			$stmt = sqlsrv_query($conn, $tsql, $params, $options);
 			$row_count = sqlsrv_num_rows($stmt);
 			// if number of rows is greater than 0, the username is already existing
-			if($row_count) {
+			if($row_count) { 
 				echo "<script>alert('Username already exists');history.go(-1);</script>";
 			} elseif($password != $c_password) {
 				echo "<script>alert('Passwords do not match');history.go(-1);</script>";
 			} else {
 				// Insert data in SQL server 
 				move_uploaded_file($image_tmp,"../img/user-img/$image");
-				$tsql = "SP_INSERT_ACCOUNT ?, ?, ?, ?, ?, ?, ?, ?, ?";   
+				$tsql = "SP_INSERT_ACCOUNT ?, ?, ?, ?, ?, ?, ?, ?, ?" ;  
 
 				//Assign value to param
 				$params = array($username

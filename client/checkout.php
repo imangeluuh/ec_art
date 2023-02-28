@@ -23,14 +23,8 @@
                                 , 'Image' => $image
                                 , 'Price' =>$price);
 
-            if(!empty($_SESSION['cart'])) {
-                $artworks = array_column($_SESSION['cart'], 'artwork_name');
-                if(!in_array($artworkName, $artworks)) {
-                    $_SESSION['cart'][$artworkName] = $artwork;
-                }
-            }  else {
-                $_SESSION['cart'][$artworkName] = $artwork;
-            } 
+            $_SESSION['cart']['item'] = $artwork;
+            }  
         } ?>
         <div class="col-md-6 d-flex flex-column px-5">
 
@@ -62,32 +56,38 @@
                 <span class="fw-semibold total-price">₱<?php echo $total; ?></span>
             </div>
             <br><br><br>
-            <?php } 
-            }?>
+            <?php } ?>
         </div>
         <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
             <span class="fw-semibold mop-labeml mb-2">Mode of Payment</span>
-            <div class="radio-div d-flex justify-content-between align-items-center border border-1 border-dark-subtle rounded-3 p-2 px-3 mb-2">
-                <label for="bank"><span class="ph">Bank</span></label>
-                <div class="form-check">
-                    <input class="form-check-input border-dark-subtle position-static" type="radio" name="blankRadio" id="bank" value="bank" aria-label="...">
+            
+                <a href="payment/bank.php" class="mop btn w-50 border-2 mb-2 border-dark-subtle position-static"  id="bank">Bank</a>
+                <a href="./payment/gcash.php" class="mop btn w-50 border-2 mb-2 border-dark-subtle position-static"  id="gcash">Gcash</a>
+                <a href="./payment/maya.php" class="mop btn w-50 border-2 mb-2 border-dark-subtle position-static" id="maya">Maya</a>
+            <!-- <form method="post" action="">
+                <span class="fw-semibold mop-labeml mb-2">Mode of Payment</span>
+                <div class="radio-div d-flex justify-content-between align-items-center border border-1 border-dark-subtle rounded-3 p-2 px-3 mb-2">
+                    <label for="bank"><span class="ph">Bank</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input border-dark-subtle position-static" type="radio" name="mop" id="bank" value="bank" aria-label="...">
+                    </div>
                 </div>
-            </div>
-            <div class="radio-div d-flex justify-content-between align-items-center border border-1 border-dark-subtle rounded-3 p-2 px-3 mb-2">
-                <label for="Gcash"><span class="ph">Gcash</span></label>
-                <div class="form-check">
-                    <input class="form-check-input border-dark-subtle position-static" type="radio" name="blankRadio" id="gcash" value="gcash" aria-label="...">
+                <div class="radio-div d-flex justify-content-between align-items-center border border-1 border-dark-subtle rounded-3 p-2 px-3 mb-2">
+                    <label for="Gcash"><span class="ph">Gcash</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input border-dark-subtle position-static" type="radio" name="mop" id="gcash" value="gcash" aria-label="...">
+                    </div>
                 </div>
-            </div>
-            <div class="radio-div d-flex justify-content-between align-items-center border border-1 border-dark-subtle rounded-3 p-2 px-3 mb-3">
-                <label for="Maya"><span class="ph">Maya</span></label>
-                <div class="form-check">
-                    <input class="form-check-input border-dark-subtle position-static" type="radio" name="blankRadio" id="maya" value="maya" aria-label="...">
+                <div class="radio-div d-flex justify-content-between align-items-center border border-1 border-dark-subtle rounded-3 p-2 px-3 mb-3">
+                    <label for="Maya"><span class="ph">Maya</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input border-dark-subtle position-static" type="radio" name="mop" id="maya" value="maya" aria-label="...">
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-2">
-                <input type='submit' name='submit' value='CHECK OUT' class='btn fw-semibold rounded-4 p-2 next'>
-            </div>
+                <div class="row mt-2">
+                    <input type='submit' name='submit' value='CHECK OUT' class='btn fw-semibold rounded-4 p-2 next'>
+                </div>
+            </form> -->
         </div>
     </div>
 </div>
