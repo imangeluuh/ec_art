@@ -116,7 +116,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item py-2">
-                                    <a href="artist_comms.php" class="comms nav-link px-0 align-middle">
+                                    <a href="artist.php?artist_comms" class="comms nav-link px-0 align-middle">
                                         <i class="fa-solid fa-brush"></i> <span class=" ms-1 d-none d-md-inline">Commissions</span>
                                     </a>
                                 </li>
@@ -137,112 +137,39 @@
                 <!-- content side -->
                 <div class="col-auto p-0 content">
                     <!-- content -->
-                    <div class="container-fluid">
-                        <div class="row">
-                        <div class="container content-div row ms-3 mt-4 p-0">
-                        <?php 
-                            if(isset($_GET['artist_art'])){
-                                include('artist_art.php'); ?>
-                                <style type="text/css">
-                                    .profile, .dashboard, .settings, .comms {
-                                        color: white;
-                                    }
-                                    .art {
-                                        color: #b99467;
-                                    }
-                                </style>
-                            <?php
-                            } elseif(isset($_GET['artist_dashboard'])){
-                                include('artist_dashboard.php'); ?>
-                                <style type="text/css">
-                                    .profile, .art, .settings, .comms {
-                                        color: white;
-                                    }
-                                    .dashboard {
-                                        color: #b99467;
-                                    }
-                                </style>
-                            <?php
-                            } else { ?>  
-                                <style type="text/css">
-                                    .art, .dashboard, .settings, .comms {
-                                        color: white;
-                                    }
-                                    .profile {
-                                        color: #b99467;
-                                    }
-                                </style>
-                                <?php 
-                                    $tsql = "SP_COUNT_ART ?";  
-                                    $params = array($artist_id);
-                                    $stmt = sqlsrv_query($conn, $tsql, $params);  
-                                    $num_of_artworks = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_NUMERIC);  
-                                    
-                                    $tsql = "SP_COUNT_COMMS ?";  
-                                    $params = array($artist_id);
-                                    $stmt = sqlsrv_query($conn, $tsql, $params);  
-                                    $num_of_comms = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_NUMERIC);  
-
-                                ?>
-                                    <div class="container-fluid">
-                                    <div class="container row ms-4 p-0">
-                                        <div class="card div-card profile-div mb-3" style="max-width: 1000px;">
-                                            <div class="row g-0 p-4">
-                                                <div class="col-md-3 d-flex justify-content-center align-items-center">
-                                                    <img src="../img/user-img/<?php echo $artist_photo;?>" width="150" height="150" class="rounded-circle profile-pic">
-                                                </div>
-                                                <div class="col-md-5 d-flex align-items-center">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?php echo $artist_name; ?></h5>
-                                                        <p class="card-text fs-5">Artist</p>
+                    <div class="row">
+                        <div class="container">
+                            <div class="row top d-flex justify-content-center">
+                                <h1 class="text-center mb-3">Art Commission</h1>
+                                <hr>
+                                <div class="row d-flex justify-content-center align-items-center mt-3">
+                                    <div class="col-lg-12 col-xl-6 p-0">
+                                        <form action="" method="post" enctype="multipart/form-data" >
+                                            <!-- Photo field -->
+                                            <div class="row">
+                                                    <div class="mb-3 p-0">
+                                                        <label for="formFile" class="form-label mb-2">Commission Photo</label>
+                                                        <i class="fa-solid fa-circle-question"></i>
+                                                        <input class="form-control border border-2 border-dark" type="file" class="form-control" name="photo">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 d-flex align-items-center">
-                                                    <div class="card-body">
-                                                        <p class="d-flex justify-content-center fw-semibold m-0"><?php echo $num_of_artworks['0'];?></p>
-                                                        <p class="card-text d-flex justify-content-center">Completed Art</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2 d-flex align-items-center">
-                                                    <div class="card-body">
-                                                        <p class="d-flex justify-content-center fw-semibold m-0"><?php echo $num_of_comms['0'];?></p>
-                                                        <p class="card-text d-flex justify-content-center">Commissions</p>
-                                                    </div>
+                                            <!-- Date Completed field -->
+                                            <div class="row">
+                                                <div class="mb-3 p-0">
+                                                    <label class="form-label mb-2">Date Completed</label>
+                                                    <i class="fa-solid fa-circle-question"></i>
+                                                    <input class="form-control border border-2 border-dark" type="date" name="date_completed">
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="container row ms-4 mt-5 p-0">
-                                        <span class="completed-art fw-semibold">Completed Art</span>
-                                        <?php
-                                            $tsql = "SP_LIST_ARTIST_ARTWORK ?";  
-                                            $param = array($artist_id);
-                                            /* Execute the query. */  
-                                            $stmt = sqlsrv_query($conn, $tsql, $param);  
-                                            if ( $stmt )  
-                                            {  
-                                                // Display products
-                                                while($row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC)) {
-                                                    $artwork_name = $row['ArtworkName'];
-                                                    $image = $row['Image'];
-                                                    $price = $row['Price'];
-                                                    $artist_name = $row['ArtistFirstName'] . " " . $row['ArtistLastName']; ?>
-                                                    
-                                        <div class="card div-card mx-lg-2 my-3 p-0" style="max-width: 23rem;">
-                                            <img src="../img/art-img/<?php echo !empty($image)?$image:'loading.jpg'; ?>" class="card-img-top rounded-top-5" alt="$artwork_name">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><?php echo $artwork_name; ?></h5>
-                                                <div class="card-text d-flex justify-content-between mt-5">
-                                                    <span class="fw-semibold">₱<?php echo $price; ?></span>
-                                                </div>
+                                            <!-- Submit Button -->
+                                            <div class="row d-flex justify-content-center">
+                                                <input type="submit" value="EDIT" name="edit" class="next border-0 rounded-5 text-light fw-bold">
                                             </div>
-                                        </div>
-                                        <?php }
-                                        } ?>
+                                        </form>
+                                        <br><br><br><br> <!-- pang extend lang hehe -->
                                     </div>
                                 </div>
-                               <?php } ?> 
-                        </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -255,3 +182,21 @@
     
 </body>
 </html>
+
+<?php
+    if(isset($_POST['edit'])){
+        $artwork_id = $_GET['id'];
+        $image = $_FILES['photo']['name'];
+        $image_tmp = $_FILES['photo']['tmp_name'];
+        $date_completed = $_POST['date_completed'];
+        move_uploaded_file($image_tmp,"../img/user-img/$image");
+
+        $tsql = "SP_UPDATE_ARTCOMMS ?, ?";
+        $params=array($artwork_id, $image);
+        $stmt = sqlsrv_query($conn, $tsql, $params);
+
+        $tsql = "SP_UPDATE_COMMS ?, ?";
+        $params=array($artwork_id, $date_completed);
+        $stmt = sqlsrv_query($conn, $tsql, $params);
+    }
+?>

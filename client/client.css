@@ -156,6 +156,8 @@ body {
 
 .card-img-top {
     object-fit: cover;
+    width: 100%;
+    height: 200px; 
 }
 
 /* Home */
@@ -259,9 +261,3 @@ h1 {
     letter-spacing: 1px;
 }
 
-.card-img-top {
-    width: 100%;
-    height: 200px; /* might change later */
-    /*object-fit: contain; to prevent images to get squeezed */
-    object-fit: cover;
-}
