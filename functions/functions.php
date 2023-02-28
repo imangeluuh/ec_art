@@ -161,8 +161,7 @@
                             <span>by <a href="client_artist.php?id=<?php echo $artist_id; ?>" class="artist-link"><?php echo $artist_name; ?></a></span>
                             <p class="d-flex justify-content-end price">₱<?php echo $price; ?></p>
                             <div class="card-text d-flex justify-content-end">
-                                <a href="client.php?checkout&action=add&artwork_name=<?php echo $artwork_name; ?>&artist_name=<?php echo $artist_name; ?>&image=<?php echo $image; ?>&price=<?php echo $price; ?>" class="btn rounded-4 bg-secondary me-2"><i class="cart fa-solid fa-cart-shopping"></i></a>
-                                <a href="client.php?checkout" class="status d-flex justify-content-center text-decoration-none">BUY NOW</a>
+                                <a href="client.php?checkout&action=add&artwork_name=<?php echo $artwork_name; ?>&artist_name=<?php echo $artist_name; ?>&image=<?php echo $image; ?>&price=<?php echo $price; ?>" class="status d-flex justify-content-center text-decoration-none">BUY NOW</a>
                             </div>
                         </div>
                     </div>

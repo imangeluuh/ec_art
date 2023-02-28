@@ -189,7 +189,7 @@
         $image = $_FILES['photo']['name'];
         $image_tmp = $_FILES['photo']['tmp_name'];
         $date_completed = $_POST['date_completed'];
-        move_uploaded_file($image_tmp,"../img/user-img/$image");
+        move_uploaded_file($image_tmp,"../img/art-img/$image");
 
         $tsql = "SP_UPDATE_ARTCOMMS ?, ?";
         $params=array($artwork_id, $image);

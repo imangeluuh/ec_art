@@ -121,8 +121,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item py-2">
-                                    <a href="artist.php?artist_dashboard" class="dashboard nav-link align-middle px-0">
-                                        <i class="fa-solid fa-house"></i> <span class="ms-1 d-none d-md-inline">Dashboard</span>
+                                    <a href="artist.php?add_artwork" class="dashboard nav-link align-middle px-0">
+                                        <i class="fa-solid fa-house"></i> <span class="ms-1 d-none d-md-inline">Add Artwork</span>
                                     </a>
                                 </li>
                                 <li class="nav-item py-2">
@@ -154,6 +154,17 @@
                             <?php
                             } elseif(isset($_GET['artist_dashboard'])){
                                 include('artist_dashboard.php'); ?>
+                                <style type="text/css">
+                                    .profile, .art, .settings, .comms {
+                                        color: white;
+                                    }
+                                    .dashboard {
+                                        color: #b99467;
+                                    }
+                                </style>
+                            <?php
+                            } elseif(isset($_GET['add_artwork'])){
+                                include('add_artwork.php'); ?>
                                 <style type="text/css">
                                     .profile, .art, .settings, .comms {
                                         color: white;

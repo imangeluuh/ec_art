@@ -64,8 +64,6 @@
             echo "Error in statement execution.\n";  
             die( print_r( sqlsrv_errors(), true));  
         }  
-        
-
     ?>
     <div class="container-fluid p-0">
         <div class="row">
