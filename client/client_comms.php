@@ -1,4 +1,4 @@
-<div class="row mx-2">
+<!-- <div class="row mx-2">
     <div class="container">
         <span class="comms-label">Last opened commission in progress</span>
         <div class="card div-card my-3">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <div class="row mx-2">
     <span class="comms-label">Commissions</span>
     <div class="card div-card mx-lg-3 my-3 p-0" style="max-width: 23rem;">

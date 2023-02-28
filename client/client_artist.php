@@ -1,13 +1,5 @@
 <?php
     include('../functions/functions.php');
-
-    // Start session 
-    if(!session_id()){ 
-        session_start(); 
-    } 
-        
-    // Retrieve session data 
-    $usertData = !empty($_SESSION['userData'])?$_SESSION['userData']:''; 
 ?>
 
 <!DOCTYPE html>
@@ -86,16 +78,16 @@
                                 <div class="input-group d-flex align-items-center search-bar">
                                     <i class="fas fa-solid fa-magnifying-glass ms-3"></i>
                                     <input type="search" name="search" class="form-control border-0" placeholder="Search" aria-label="Search">
-                                </div> 
+                                </div>
                             </form>
                         </div>
                         <div class="col d-flex align-items-center justify-content-end">
                             <div class="dropdown">
                                 <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../img/user-img/<?php echo $client_photo?>" alt="hugenerd" width="50" height="50" class="rounded-circle">
+                                    <img src="../img/user-img/<?php echo $client_photo?>" alt="" width="50" height="50" class="rounded-circle">
                                     <span class="d-none d-md-inline mx-2">
                                         <p class="d-flex justify-content-end fw-bold m-0 artist-name"><?php echo $client_name?></p>
-                                        <p class="d-flex justify-content-end fw-semibold m-0 artist-role">Client</p>  
+                                        <p class="d-flex justify-content-end fw-semibold m-0 artist-role">Client</p>
                                     </span>
                                     <i class="fa-solid fa-angle-down mx-2"></i>
                                 </a>
@@ -104,7 +96,7 @@
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="../landing/logout.php">Sign out</a></li>
                                 </ul>
                             </div>
                             <button type="button" class="btn"><i class="fa-solid fa-cart-shopping"></i></button>
@@ -113,8 +105,8 @@
                     </div>
                 </nav>
             </div>
-            
-            <div class="container-fluid row">
+
+            <div class="container-fluid">
                 <!-- sidebar -->
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 position-fixed sidebar ">
                     <div class="d-flex flex-column align-items-center align-items-sm-start min-vh-100">
@@ -162,14 +154,14 @@
                             <?php
                                 
                             ?>
-                            <div class="container content-div row ms-5 mt-4 p-0">
+                            <div class="container content-div row ms-3 mt-4 p-0">
                             <?php  
 
                                 if(isset($_GET['comms_form'])){
                                     include('comms_form.php');
                                 } elseif(isset($_GET['id'])) {
                                     $artist_id = $_GET['id'];
-                                    $tsql = "SP_GET_ARTIST ?";
+                                    $tsql = "SP_ARTIST_PROFILE ?";
                                     $params = array($artist_id);
                                     $stmt = sqlsrv_query($conn, $tsql, $params);
                                     $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
@@ -181,10 +173,20 @@
                                     $artist_username = $row['Username']; 
                                     
                                     
+                                    $tsql = "SP_COUNT_ART ?";  
+                                    $params = array($artist_id);
+                                    $stmt = sqlsrv_query($conn, $tsql, $params);  
+                                    $num_of_artworks = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_NUMERIC);  
+                                    
+                                    $tsql = "SP_COUNT_COMMS ?";  
+                                    $params = array($artist_id);
+                                    $stmt = sqlsrv_query($conn, $tsql, $params);  
+                                    $num_of_comms = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_NUMERIC);  
+
                                     ?>
 
                                     <!-- Artist's Info Card -->
-                                    <div class="card div-card profile-div mb-3" style="max-width: 1000px;">
+                                    <div class="card div-card profile-div mb-3 mx-5" style="max-width: 1000px;">
                                         <div class="row g-0 p-4">
                                             <div class="col-md-3 d-flex justify-content-center align-items-center">
                                                 <img src="../img/user-img/<?php echo !empty($artist_photo)?$artist_photo:"blank-profile.jpg"; ?>" width="150" height="150" class="rounded-circle profile-pic">
@@ -198,13 +200,13 @@
                                             </div>
                                             <div class="col-md-2 d-flex align-items-center">
                                                 <div class="card-body">
-                                                    <p class="d-flex justify-content-center fw-semibold m-0">1</p>
+                                                    <p class="d-flex justify-content-center fw-semibold m-0"><?php echo $num_of_artworks['0'];?></p>
                                                     <p class="card-text d-flex justify-content-center">Completed Art</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-2 d-flex align-items-center">
                                                 <div class="card-body">
-                                                    <p class="d-flex justify-content-center fw-semibold m-0">0</p>
+                                                    <p class="d-flex justify-content-center fw-semibold m-0"><?php echo $num_of_comms['0'];?></p>
                                                     <p class="card-text d-flex justify-content-center">Commissions</p>
                                                 </div>
                                             </div>
@@ -218,6 +220,7 @@
                                         $params = array($artist_id);
                                         $stmt = sqlsrv_query($conn, $tsql, $params);
 
+
                                         while($row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC)) {
                                             $artwork_id = $row['ArtworkID'];
                                             $artwork_name = $row['ArtworkName'];
@@ -225,18 +228,21 @@
                                             $image = $row['Image'];
                                             $commissioned = $row['Commissioned'];
                                         ?>
-
-                                        <div class="card div-card mx-lg-3 my-3 p-0" style="max-width: 23rem;">
+                                        <div class="container row mx-0">
+                                        <div class="col-md-4">
+                                        <div class="card div-card my-3 p-0" style="max-width: 23rem;">
                                             <img src="../img/art-img/<?php echo $image; ?>" class="card-img-top rounded-top-5" alt="$artwork_name">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $artwork_name; ?></h5>
                                                 <span>by <?php echo $artist_name; ?></span>
                                                 <p class="d-flex justify-content-end price">₱<?php echo $price; ?></p>
                                                 <div class="card-text d-flex justify-content-end">
-                                                    <button class="btn rounded-4 bg-secondary me-2"><i class="cart fa-solid fa-cart-shopping"></i></button>
+                                                    <a href="client.php?checkout&artwork_name=<?php echo $artwork_name; ?>&artist_name=<?php echo $artist_name; ?>&image=<?php echo $image; ?>&price=<?php echo $price; ?>"class="btn rounded-4 bg-secondary me-2"><i class="cart fa-solid fa-cart-shopping"></i></a>
                                                     <a href="client.php?checkout" class="status d-flex justify-content-center text-decoration-none">BUY NOW</a>
                                                 </div>
                                             </div>
+                                        </div>
+                                        </div>
                                         </div>
                                     <?php } 
                                 } ?>

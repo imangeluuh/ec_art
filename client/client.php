@@ -99,7 +99,7 @@
                                     <li><a class="dropdown-item" href="../landing/logout.php">Sign out</a></li>
                                 </ul>
                             </div>
-                            <button type="button" class="btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <a href="client.php?checkout"type="button" class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
                             <button type="button" class="btn"><i class="fa-regular fa-bell fw-light mx-1"></i></button>
                         </div>
                     </div>

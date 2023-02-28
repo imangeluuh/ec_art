@@ -33,6 +33,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+<?php
+        // Start session 
+		if(!session_id()){ 
+		    session_start(); 
+		} 
+ 
+
+		// Retrieve session data 
+		$userData = !empty($_SESSION['userData'])?$_SESSION['userData']:''; 
+
+
+		// Include database configuration file 
+		require_once '../database/dbConfig.php'; 
+
+        $tsql = "SP_GET_CLIENT ?";
+        $params = array($_SESSION['userData']['username']);
+        $stmt = sqlsrv_query($conn, $tsql, $params);
+        if ( $stmt )  
+        {  
+            $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
+            $client_username = $row['Username'];
+            $client_id = $row['ClientID'];
+            $client_name = $row['ClientFirstName'] . " " . $row['ClientLastName'];
+            $client_photo = $row['ClientPhoto'];
+            
+        }   
+        else   
+        {  
+            echo "Error in statement execution.\n";  
+            die( print_r( sqlsrv_errors(), true));  
+        }  
+        
+
+    ?>
     <div class="container-fluid p-0">
         <div class="row">
             <!-- header  -->
@@ -40,20 +74,20 @@
                 <nav class="navbar navbar-expand position-fixed header">
                     <div class="container-fluid d-flex justify-content-end px-3">
                         <div class="col ms-5">
-                            <form action="" method="post" class="d-none d-lg-inline">
+                            <form action="search.php" method="post" class="d-none d-lg-inline">
                                 <div class="input-group d-flex align-items-center search-bar">
                                     <i class="fas fa-solid fa-magnifying-glass ms-3"></i>
                                     <input type="search" name="search" class="form-control border-0" placeholder="Search" aria-label="Search">
-                                </div> 
+                                </div>
                             </form>
                         </div>
                         <div class="col d-flex align-items-center justify-content-end">
                             <div class="dropdown">
                                 <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../leonardo.jpg" alt="hugenerd" width="50" height="50" class="rounded-circle">
+                                    <img src="../img/user-img/<?php echo $client_photo?>" alt="" width="50" height="50" class="rounded-circle">
                                     <span class="d-none d-md-inline mx-2">
-                                        <p class="d-flex justify-content-end fw-bold m-0 artist-name">Leonardo Da Vinci</p>
-                                        <p class="d-flex justify-content-end fw-semibold m-0 artist-role">Client</p>  
+                                        <p class="d-flex justify-content-end fw-bold m-0 artist-name"><?php echo $client_name?></p>
+                                        <p class="d-flex justify-content-end fw-semibold m-0 artist-role">Client</p>
                                     </span>
                                     <i class="fa-solid fa-angle-down mx-2"></i>
                                 </a>
@@ -62,7 +96,7 @@
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="../landing/logout.php">Sign out</a></li>
                                 </ul>
                             </div>
                             <button type="button" class="btn"><i class="fa-solid fa-cart-shopping"></i></button>
@@ -71,7 +105,7 @@
                     </div>
                 </nav>
             </div>
-            
+
             <div class="container-fluid">
                 <!-- sidebar -->
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 position-fixed sidebar ">

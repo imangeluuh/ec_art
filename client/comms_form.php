@@ -49,7 +49,7 @@
                     </div>
                     <!-- Submit Button -->
                     <div class="row d-flex justify-content-center">
-                        <input type="submit" value="NEXT" name="next" class="next border-0 rounded-5 text-light fw-bold">
+                        <input type="submit" value="NEXT" name="submit" class="next border-0 rounded-5 text-light fw-bold">
                     </div>
                 </form>
                 <br><br><br><br> <!-- pang extend lang hehe -->
@@ -60,16 +60,34 @@
 
 
 <?php
-    // if(isset($_POST['submit'])){
-    //     $artwork_name = $_POST['artname'];
-    //     $description = $_POST['description'];
-    //     $price = $_POST['price'];
-    //     $deadline = $_POST['deadline'];
+    if(isset($_POST['submit'])){
+        $artwork_name = $_POST['artname'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $deadline = $_POST['deadline'];
         
-    //     $tsql = "SP_ADD_C0MMS ?, ?, ?, ?, ?";
-    //     $params=array($artwork_name, $_GET['id'], $price, ,1);
+        $tsql = "SP_ADD_ARTWORK ?, ?, ?, ?, ?";
+        $params=array($artwork_name, $_GET['id'], $price, NULL ,1);
+        $stmt = sqlsrv_query($conn, $tsql, $params);
 
+        if($stmt) {
+            $tsql = "SP_GET_ARTWORK_ID ?";
+            $params=array($artwork_name);
+            $query = sqlsrv_query($conn, $tsql, $params);
+            $row = sqlsrv_fetch_array( $query, SQLSRV_FETCH_ASSOC);
+            $artwork_id = $row['ArtworkID'];
 
+            $tsql = "SP_ADD_COMMS ?, ?, ?, ?";
+            $params=array($artwork_id, $deadline, 'In Progress', $description);
+            $query = sqlsrv_query($conn, $tsql, $params);
 
-    // }
+            $tsql = "SP_ADD_ORDER ?, ?";
+            $params=array($artwork_id, $client_id);
+            $query = sqlsrv_query($conn, $tsql, $params);
+        } else {  
+            echo "Error in statement execution.\n";  
+            die( print_r( sqlsrv_errors(), true));  
+        }
+
+    }
 ?>
